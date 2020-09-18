@@ -1,4 +1,4 @@
-module .
+module github.com/chrisglass/kapitan-helm-bindings
 
 go 1.14
 

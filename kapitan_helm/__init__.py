@@ -8,7 +8,7 @@ import platform
 import yaml
 
 try:
-    from kapitan.inputs.helm.helm_binding import ffi
+    from kapitan_helm.helm_binding import ffi
 except ImportError:
     pass  # make this feature optional
 

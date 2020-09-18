@@ -3,7 +3,7 @@
 cd $(dirname "$0")
 pwd
 
-so_name="libtemplate.so"
+so_name="kapitan_helm/libtemplate.so"
 
 # Compile the binding if a Go runtime exists
 if [[ -z $(which go) ]]; then
