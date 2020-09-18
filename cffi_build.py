@@ -12,7 +12,7 @@ def main():
     """
     )
 
-    ffi.set_source("helm_binding", None)  # specify name for importing this module
+    ffi.set_source("kapitan_helm_binding", None)  # specify name for importing this module
 
     ffi.compile(verbose=True)
 

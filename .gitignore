@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+kapitan_helm_binding.py
+*.h
+*.so
