@@ -6,3 +6,6 @@ tmp/
 kapitan_helm_binding.py
 *.h
 *.so
+build/
+.eggs/
+.venv/
