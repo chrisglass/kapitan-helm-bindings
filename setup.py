@@ -11,4 +11,5 @@ setuptools.setup(
     setup_requires=['setuptools-golang'],
     ext_modules=[setuptools.Extension('template', ['template.go'])],
     build_golang={'root': 'github.com/chrisglass/kapitan-helm-bindings'},
+    zip_safe=False,
 )
