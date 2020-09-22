@@ -28,6 +28,9 @@ meant for windows tries to set the file as "write-only" in order to be able to
 delete it, but that fails on linux since the directory is marked read-only as
 well.
 
+A better approach might be to switch to using CFFI's packaging tooling:
+https://cffi.readthedocs.io/en/latest/cdef.html#ffi-ffibuilder-cdef-declaring-types-and-functions
+
 Future work
 -----------
 
