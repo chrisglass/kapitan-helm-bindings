@@ -9,3 +9,5 @@ kapitan_helm_binding.py
 build/
 .eggs/
 .venv/
+dist/
+*.egg-info

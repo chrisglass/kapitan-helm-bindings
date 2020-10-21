@@ -6,3 +6,4 @@ rm -f kapitan_helm/*.h
 rm -rf .eggs/
 rm -rf build/
 rm -rf *.egg-info/
+rm -rf dist/

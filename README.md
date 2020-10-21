@@ -11,35 +11,30 @@ This project is UNFINISHED and not currently useable (see below).
 Current approach and findings
 ------------------------------
 
-The first approach taken by this project is to attempt to build the golang
-extension using setuptools-golang.
+The approach taken by this project is to build the golang extension using
+`setuptools-golang`.
 
-This seems to successfully build the golang code into a shared .so object that
-we can inspect and call from python - however the kapitan helm bindings
-currently use CFFI instead of ctypes, so the CFFI part is not currenlty "hooked
-in" to the build.
+This succesfully builds a golang binary in shared library mode, that we then
+build a cffi wrapper for.
 
-During this process a bug was found in setuptools-golang: setuptools-golang
-first issues a "go get -d" in GOPATH mode, that checks out all dependencies in a
-/tmp subdirectory, marking the whole hierarchy read-only (including
-directories). Once the build is done, the code tries to delete the temporary
-tree, but that fails since all of the path is marked read-only. A bit of logic
-meant for windows tries to set the file as "write-only" in order to be able to
-delete it, but that fails on linux since the directory is marked read-only as
-well.
+The compilation method used is "out-of-line" and "ABI mode" as described in https://cffi.readthedocs.io/en/latest/cdef.html
 
-A better approach might be to switch to using CFFI's packaging tooling:
-https://cffi.readthedocs.io/en/latest/cdef.html#ffi-ffibuilder-cdef-declaring-types-and-functions
+
+Building and publishing
+-----------------------
+
+The following steps are required to build and publish the wheel(s) to pypi:
+
+- In a virtualenv with the build dependencies available ('setuptools-golang', 'cffi>=1.0.0'), run 
+`setuptools-golang-build-manylinux-wheels`
+- Once the build process is over you can upload the resulting wheels (located in dist/):
+`twine upload --repository testpypi dist/**`
 
 Future work
 -----------
 
 There's a few things to do for this to be successful:
 
-- find or write code to run the CFFI precompilation properly on the built golang
-  .so (CFFI precompiles a "wrapper" class).
-- fix the found bug in setuptools-golang
-- extend setuptools-golang to run the cffi compilation (if needed/detected)
 - ensure the resulting package is useable stand alone (eg. pip install the
   package, checkout a helm chart, and ensure it compiles from the python REPL)
 - once the package is ready, some work with upstream needs to happen:

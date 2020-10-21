@@ -1,3 +1,4 @@
 global-include *.c
 global-include *.go
 include *.go go.mod go.sum
+include cffi_build.py

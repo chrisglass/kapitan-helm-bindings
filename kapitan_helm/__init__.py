@@ -9,6 +9,7 @@ import yaml
 
 try:
     from kapitan_helm.helm_binding import ffi
+    from kapitan_helm.util import get_dl_path
 except ImportError:
     pass  # make this feature optional
 
@@ -29,6 +30,7 @@ class Helm(InputType):
             return None
         # binding_path is kapitan/inputs/helm/libtemplate.so
         binding_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "libtemplate.so")
+        binding_path = get_dl_path()
         if not os.path.exists(binding_path):
             logger.debug("The helm binding does not exist at {}".format(binding_path))
             return None
