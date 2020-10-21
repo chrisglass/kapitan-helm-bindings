@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo "This is provided for reference and will be deleted in the future"
+echo "If you are trying to build this as a python module, run this instead:"
+echo "   setuptools-golang-build-manylinux-wheels "
+exit 0
+
 cd $(dirname "$0")
 pwd
 
