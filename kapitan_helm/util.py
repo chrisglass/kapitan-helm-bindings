@@ -11,7 +11,7 @@ def get_dl_path():
     target_folder = Path(helm_binding.__file__)
     target_folder = target_folder.parent
     target_folder = target_folder.parent
-    target_lib = target_folder / "template{}".format(sysconfig.get_config_var("EXT_SUFFIX"))
+    target_lib = target_folder / "helm{}".format(sysconfig.get_config_var("EXT_SUFFIX"))
 
     return str(target_lib)
 

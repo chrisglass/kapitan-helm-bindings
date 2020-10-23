@@ -6,6 +6,7 @@ ffi = FFI()
 ffi.cdef(
     """
     char* renderChart(char* p0, char* p1, char* p2, char* p3, char* p4, char* p5, char** p6, int p7);
+    char* fetchHelmChart(char* p0, char* p1, char* p2, char* p3);
     void free(void* ptr);
 """
 )

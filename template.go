@@ -325,5 +325,3 @@ func ensureDirectoryForFile_c(file string) error {
 	return os.MkdirAll(baseDir, defaultDirectoryPermission_c)
 }
 
-// this is required to build this as shared object file using cgo
-func main() {}
